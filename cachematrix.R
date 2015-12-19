@@ -2,11 +2,7 @@
 ## Usage: 1 - x<-makeCacheMatrix(A)
 ##        2 - cacheSolve(x)
 
-##  creates a special "vector", containing a function to
-##      set the Matrix
-##      get the Matrix
-##      set the Inverse matrix
-##      get the Inverse matrix
+##  This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -23,11 +19,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Calculates the inverse of the matrix stored in the above vector. 
-## It first checks to see if the inverse has already been calculated. 
-## If so, it gets the inverse matrix from the cache and skips the computation. 
-## Otherwise, it calculates the inverse of the matrix and sets the resulting matrix
-## in the cache via the setInverse function.
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
+## If the inverse has already been calculated (and the matrix has not changed), then cacheSolve 
+## should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
